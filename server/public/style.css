@@ -1,6 +1,10 @@
 * {
-    margin: 0px
+    margin: 0px;
+}
+body {
+    background-color: black;
+    color: white;
 }
 h1 {
-    font-family: sans-serif;
+    font-family: monospace;
 }
