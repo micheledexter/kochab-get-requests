@@ -23,12 +23,9 @@ app.get('/all-quotes', (req, res) => {
     res.send(response);
 });
 
-// 
+// Display a random quote
 app.get('/quote', (req, res) => {
     loaded();
-    function randomNumber(min, max) {
-        return Math.floor(Math.random() * (1 + max - min) + min);
-    }
     data = quotes[randomNumber(0, quotes.length - 1)];
     res.send(`<p>"${data.quote}" - ${data.author}`);
 });
@@ -36,4 +33,9 @@ app.get('/quote', (req, res) => {
 // Prepare page load message
 function loaded() {
     console.log("Page loaded");
+}
+
+// Random number generator
+function randomNumber(min, max) {
+    return Math.floor(Math.random() * (1 + max - min) + min);
 }
