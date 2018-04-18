@@ -1,7 +1,7 @@
 console.log('client.js is loaded');
 
-$(document).ready(readyNow);
+$(document).ready(onReady);
 
-function readyNow() {
+function onReady() {
     console.log('jQuery is loaded');
 }
