@@ -7,13 +7,14 @@ const PORT = 5000;
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 
 // Get additional requirements
-const quotes = require('./all-quotes');
+const quotes = require('./modules/all-quotes');
 
 // Set root page response
-app.get('/', (req, res) => {
-    loaded();
-    res.send('Happy Wednesday!');
-});
+// app.get('/', (req, res) => {
+//     loaded();
+//     res.send('Happy Wednesday!');
+// });
+app.use(express.static('server/public'));
 
 // Set all-quotes subdirectory response
 app.get('/all-quotes', (req, res) => {
@@ -26,16 +27,11 @@ app.get('/all-quotes', (req, res) => {
 // Display a random quote
 app.get('/quote', (req, res) => {
     loaded();
-    data = quotes[randomNumber(0, quotes.length - 1)];
+    const data = quotes[Math.floor(Math.random() * quotes.length)];
     res.send(`<p>"${data.quote}" - ${data.author}`);
 });
 
 // Prepare page load message
 function loaded() {
     console.log("Page loaded");
-}
-
-// Random number generator
-function randomNumber(min, max) {
-    return Math.floor(Math.random() * (1 + max - min) + min);
 }
