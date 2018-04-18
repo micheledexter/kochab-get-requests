@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/micheledexter/kochab-get-requests#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "jquery": "^3.3.1"
   }
 }
